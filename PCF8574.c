@@ -27,7 +27,6 @@ uint8_t PCF8574_Read(I2C_HandleTypeDef *hi2c, PCF8574_GPIO GPIO_EX){
  * @param Tx Value to set, 0 to 255.
  */
 void PCF8574_Write(I2C_HandleTypeDef *hi2c, PCF8574_GPIO GPIO_EX, uint8_t Tx){
-	uint8_t Rx;
 	uint16_t DevAddress = PCF8574_BASE_ADDRESS | (GPIO_EX << 1) | PCF8574_WRITE;
-	HAL_I2C_Master_Transmit(hi2c, DevAddress, &Rx, 1, PCF8574_TIMEOUT);
+	HAL_I2C_Master_Transmit(hi2c, DevAddress, &Tx, 1, PCF8574_TIMEOUT);
 }
